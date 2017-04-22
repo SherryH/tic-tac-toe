@@ -16,5 +16,19 @@ box-shadow: 1px 9px 15px 2px rgba(0,0,0,0.52);
   background: rgba(40,40,40,1)
     -webkit-radial-gradient(center, rgba(40,80,60,1), rgba(0,20,20,.6));
   margin: 0px auto;
+  position: relative;
+}
+
+.game-choice {
+  position: absolute;
+  width: 90%;
+  font-family: 'Architects Daughter',Helvetica,sans-serif;
+  margin-top: 10px auto;
+}
+
+.game-choice p {
+  text-align: center;
+  font-size: 36px;
+  color: white;
 
 }
