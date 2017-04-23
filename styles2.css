@@ -22,7 +22,11 @@ box-shadow: 1px 9px 15px 2px rgba(0,0,0,0.52);
   align-items: center;
 }
 
-.game-choice {
+.game-starter {
+  display: none;
+}
+
+.game-choice, .game-starter{
   /*position: absolute;*/
   width: 90%;
   height: 100%;
@@ -30,13 +34,13 @@ box-shadow: 1px 9px 15px 2px rgba(0,0,0,0.52);
   margin-top: 10px auto;
 }
 
-.game-choice p {
+.game-choice p, .game-starter p{
   text-align: center;
   font-size: 36px;
   color: white;
 }
 
-.game-choice button {
+.game-choice button, .game-starter button {
   color: rgba(220,220,220,1);
   font-size: 1.8rem;
   background: none;
