@@ -1,17 +1,17 @@
 const MYAPP = {
   initializeGame: function() {
     $('.game-choice button').click(function(){
-      MYAPP.display.hideGameChoice(MYAPP.display.showGameStarter);
+
+      $.when(MYAPP.display.hideGameChoice())
+      .done(MYAPP.display.showGameStarter);
+
     });
   },
 };
 
 MYAPP.display = {
   hideGameChoice: function(callback) {
-    $('.game-choice').fadeOut({
-      duration: 600,
-      done: callback,
-    });
+    return $('.game-choice').fadeOut(600);
   },
   showGameStarter: function() {
     $('.game-starter').fadeIn(700);
