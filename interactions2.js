@@ -13,9 +13,12 @@ const MYAPP = {
 
 MYAPP.display = {
   hideGameChoice: function(callback) {
-    return $('.game-choice').fadeOut(600); //needs to return for Promise to work
+    return $('.game-choice').fadeOut(600); //needs to return for Promise to work in initialiseGame()
   },
   showGameStarter: function() {
+    if (MYAPP.secondPlayer) {
+      $('.game-starter').children('p').text('Player One: ' + $('.game-starter').children('p').text());
+    }
     $('.game-starter').fadeIn(700);
   },
 };
