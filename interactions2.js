@@ -1,12 +1,17 @@
 const MYAPP = {
   secondPlayer: null,
+  playerOneSymbol: null,
+  playerTwoSymbol: null,
   initializeGame: function() {
     $('.game-choice button').click(function(){
       MYAPP.secondPlayer = MYAPP.game.chooseGame(this);
       console.log('2nd player',MYAPP.secondPlayer);
       $.when(MYAPP.display.hideGameChoice())
       .done(MYAPP.display.showGameStarter);
+    });
 
+    $('.game-starter .role-control button').click(function() {
+      MYAPP.game.startGame(this);
     });
   },
 };
@@ -26,6 +31,10 @@ MYAPP.display = {
 MYAPP.game = {
   chooseGame: function(playerSelected) {
     return $(playerSelected).text() === "Two Player";
+  },
+  startGame: function(playerOneSymbol) {
+    MYAPP.playerOneSymbol = $(playerOneSymbol).text();
+    console.log('playerOne', MYAPP.playerOneSymbol);
   },
 };
 
