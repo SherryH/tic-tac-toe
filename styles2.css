@@ -93,6 +93,25 @@ box-shadow: 1px 9px 15px 2px rgba(0,0,0,0.52);
   display: none;
 }
 
+.scores {
+  color: rgba(100,60,50,.8);
+  /*font-size: 1.3em;*/
+  z-index: 3;
+  position: absolute;
+  margin-top: -35px;
+  margin-left: 50px;
+}
+
+.vertical-divider {
+  font-size: 1.7em;
+}
+
+.score {
+  position: absolute;
+  bottom: 15px;
+  /*text-align: center; //it doesnt work..*/
+}
+
 button {
   cursor: pointer;
 }
