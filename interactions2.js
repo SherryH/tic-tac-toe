@@ -52,12 +52,14 @@ MYAPP.display = {
     MYAPP.display.drawBoard();
     $('#myCanvas').fadeIn(400);
     $('.reset').fadeIn(400);
+    $('.scores').fadeIn(400);
 
   },
   hideGameBoard: function() {
     $('.game-board').fadeOut(400);
     MYAPP.display.drawBoard();
     $('#myCanvas').fadeOut(400);
+    $('.scores').fadeOut(400);
     return $('.reset').fadeOut(400);
   },
   drawBoard: function() {
