@@ -37,10 +37,12 @@ MYAPP.display = {
     $('.game-choice').fadeIn(700);
   },
   showGameStarter: function() {
+    var msg = 'Would you like to be X or O?';
     if (MYAPP.hasSecondPlayer) {
-      $('.game-starter').children('p').text('Player One: ' + $('.game-starter').children('p').text());
+      msg = 'Player One:' + msg;
     }
-    $('.game-starter').fadeIn(700);
+    $('.game-starter').children('p').text(msg)
+    $('.game-starter').fadeIn(600);
   },
   hideGameStarter: function() {
     return $('.game-starter').fadeOut(600);
