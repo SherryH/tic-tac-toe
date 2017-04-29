@@ -41,7 +41,7 @@ MYAPP.display = {
     if (MYAPP.hasSecondPlayer) {
       msg = 'Player One:' + msg;
     }
-    $('.game-starter').children('p').text(msg)
+    $('.game-starter').children('p').text(msg);
     $('.game-starter').fadeIn(600);
   },
   hideGameStarter: function() {
@@ -55,10 +55,10 @@ MYAPP.display = {
 
   },
   hideGameBoard: function() {
-    $('.game-board').fadeOut(0);
+    $('.game-board').fadeOut(400);
     MYAPP.display.drawBoard();
-    $('#myCanvas').fadeOut(0);
-    $('.reset').fadeOut(0);
+    $('#myCanvas').fadeOut(400);
+    return $('.reset').fadeOut(400);
   },
   drawBoard: function() {
     /*show game board*/
