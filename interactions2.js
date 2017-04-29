@@ -19,7 +19,12 @@ const MYAPP = {
 
     $('.back-button').click(function() {
       $.when(MYAPP.display.hideGameStarter())
-      .then(MYAPP.display.showGameChoice);
+      .done(MYAPP.display.showGameChoice);
+    });
+
+    $('.reset').click(function() {
+      $.when(MYAPP.display.hideGameBoard())
+      .done(MYAPP.display.showGameChoice);
     });
   },
 };
@@ -44,7 +49,14 @@ MYAPP.display = {
     $('.game-board').fadeIn(400);
     MYAPP.display.drawBoard();
     $('#myCanvas').fadeIn(400);
+    $('.reset').fadeIn(400);
 
+  },
+  hideGameBoard: function() {
+    $('.game-board').fadeOut(0);
+    MYAPP.display.drawBoard();
+    $('#myCanvas').fadeOut(0);
+    $('.reset').fadeOut(0);
   },
   drawBoard: function() {
     /*show game board*/
