@@ -113,6 +113,9 @@ MYAPP.game = {
     $.when(MYAPP.display.hideGameStarter())
     .done(MYAPP.display.showGameBoard);
 
+    /* Game board logic */
+    //lay out invisible board pieces according to canvas position
+    //set event listener for click, assign symbol
 
   },
 };

@@ -7,6 +7,10 @@
 </head>
   <body>
     <div class="outer-container">
+      <div class="player-turn">
+        <span class="player1-turn">Go Player One!</span>
+        <span class="player2-turn">Go Player Two!</span>
+      </div>
       <button class="reset">Reset</button>
       <div class="scores">
         <span>
@@ -16,10 +20,6 @@
         <span>
           <span class="score">0</span><span>player 2</span>
         </span>
-      </div>
-      <div class="player-turn">
-        <span class="player1-turn">Go Player One!</span>
-        <span class="player2-turn">Go Player Two!</span>
       </div>
       <div class="board-container">
         <div class="game-choice">
@@ -39,7 +39,7 @@
         </div>
         <div class="game-board">
           <canvas id="myCanvas"></canvas>
-
+          <div class="boxes"></div>
         </div>
       </div> <!--end board-container-->
     </div>
