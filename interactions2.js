@@ -114,9 +114,19 @@ MYAPP.game = {
     .done(MYAPP.display.showGameBoard);
 
     /* Game board logic */
-    //lay out invisible board pieces according to canvas position
+    //lay out invisible board boxes according to canvas position
     //set event listener for click, assign symbol
+    // box container created in html, no position conflict with canvas
+    MYAPP.game.setBoxes();
+    //http://gridbyexample.com/examples/example1/
 
+  },
+  setBoxes: function() {
+    $('.boxes').html('');
+    for (var i = 0; i < 3; i ++) {
+      var box = $('<span />').addClass('box');
+      $('.boxes').append(box);
+    }
   },
 };
 
