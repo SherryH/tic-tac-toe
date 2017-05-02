@@ -123,7 +123,7 @@ MYAPP.game = {
   },
   setBoxes: function() {
     $('.boxes').html('');
-    for (var i = 0; i < 3; i ++) {
+    for (var i = 0; i < 9; i ++) {
       var box = $('<span />').addClass('box');
       $('.boxes').append(box);
     }
