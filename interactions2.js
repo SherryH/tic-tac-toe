@@ -26,6 +26,8 @@ const MYAPP = {
       $.when(MYAPP.display.hideGameBoard())
       .done(MYAPP.display.showGameChoice);
     });
+
+
   },
 };
 
@@ -117,17 +119,20 @@ MYAPP.game = {
     //lay out invisible board boxes according to canvas position
     //set event listener for click, assign symbol
     // box container created in html, no position conflict with canvas
-    MYAPP.game.setBoxes();
     //http://gridbyexample.com/examples/example1/
+    MYAPP.game.setSquares();
+
+    /* Call Game play logic */
 
   },
-  setBoxes: function() {
+  setSquares: function() {
     $('.boxes').html('');
     for (var i = 0; i < 9; i ++) {
-      var box = $('<span />').addClass('box');
+      var box = $('<span />').addClass('box').attr('id', i);
       $('.boxes').append(box);
     }
   },
+  // markBoxes: function() {} //updateSquares
 };
 
 
