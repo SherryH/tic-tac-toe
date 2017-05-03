@@ -2,6 +2,7 @@ const MYAPP = {
   hasSecondPlayer: null,
   playerOneSymbol: null,
   playerTwoSymbol: null,
+  isPlayerOneTurn: true,
   timeOuts: [],
   initializeGame: function() {
     /* Game choice page */
@@ -26,8 +27,11 @@ const MYAPP = {
       $.when(MYAPP.display.hideGameBoard())
       .done(MYAPP.display.showGameChoice);
     });
-
-
+    /* Game Board Page */
+    $('.box').click(function() {
+      console.log('clicked?');
+      MYAPP.game.updateSquares(this);
+    });
   },
 };
 
@@ -132,7 +136,11 @@ MYAPP.game = {
       $('.boxes').append(box);
     }
   },
-  // markBoxes: function() {} //updateSquares
+  updateSquares: function(square) {
+    console.log('clicked');
+    var symbol = MYAPP.isPlayerOneTurn? MYAPP.playerOneSymbol: MYAPP.playerTwoSymbol;
+    square.text(symbol);
+  }, //updateSquares
 };
 
 
