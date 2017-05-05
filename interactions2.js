@@ -107,7 +107,7 @@ MYAPP.game = {
   startGame: function(playerOneSymbol) {
     MYAPP.playerOneSymbol = $(playerOneSymbol).text();
     console.log('playerOne', MYAPP.playerOneSymbol);
-    MYAPP.playerTwoSymbol = (MYAPP.playerOneSymbol==='X')? 'X': 'O';
+    MYAPP.playerTwoSymbol = (MYAPP.playerOneSymbol==='X')? 'O': 'X';
     /* Game board page */
     // work on 2 player logic first
     // draw game baord
@@ -128,7 +128,7 @@ MYAPP.game = {
   },
   play: function() {
     /* Game Board Page */
-    //this event listener must be attached after the elements are created
+    //this event listener must be attached after the squares are set
     $('.box').click(function() {
       MYAPP.game.updateSquares(this);
     });
@@ -141,9 +141,8 @@ MYAPP.game = {
     }
   },
   updateSquares: function(square) {
-    console.log('clicked');
     var symbol = MYAPP.isPlayerOneTurn? MYAPP.playerOneSymbol: MYAPP.playerTwoSymbol;
-    console.log(square);
+    MYAPP.isPlayerOneTurn = ! MYAPP.isPlayerOneTurn;
     $(square).text(symbol);
   }, //updateSquares
 };
