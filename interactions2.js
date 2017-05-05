@@ -27,11 +27,7 @@ const MYAPP = {
       $.when(MYAPP.display.hideGameBoard())
       .done(MYAPP.display.showGameChoice);
     });
-    /* Game Board Page */
-    $('.box').click(function() {
-      console.log('clicked?');
-      MYAPP.game.updateSquares(this);
-    });
+
   },
 };
 
@@ -127,7 +123,15 @@ MYAPP.game = {
     MYAPP.game.setSquares();
 
     /* Call Game play logic */
+    MYAPP.game.play();
 
+  },
+  play: function() {
+    /* Game Board Page */
+    //this event listener must be attached after the elements are created
+    $('.box').click(function() {
+      MYAPP.game.updateSquares(this);
+    });
   },
   setSquares: function() {
     $('.boxes').html('');
@@ -139,7 +143,8 @@ MYAPP.game = {
   updateSquares: function(square) {
     console.log('clicked');
     var symbol = MYAPP.isPlayerOneTurn? MYAPP.playerOneSymbol: MYAPP.playerTwoSymbol;
-    square.text(symbol);
+    console.log(square);
+    $(square).text(symbol);
   }, //updateSquares
 };
 
