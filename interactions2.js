@@ -3,7 +3,27 @@ const MYAPP = {
   playerOneSymbol: null,
   playerTwoSymbol: null,
   isPlayerOneTurn: true,
-  timeOuts: [],
+  winCombos: [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+    [1, 4, 7],
+    [2, 5, 8],
+    [3, 6, 9],
+    [1, 5, 9],
+    [7, 5, 3]
+  ],
+  currentBoard: {
+    1: '',
+    2: '',
+    3: '',
+    4: '',
+    5: '',
+    6: '',
+    7: '',
+    8: '',
+    9: '',
+  },
   initializeGame: function() {
     /* Game choice page */
     $('.game-choice button').click(function(){
@@ -97,7 +117,16 @@ MYAPP.display = {
     canvas.closePath();
     canvas.stroke();
   },
-
+  setSquares: function() {
+    $('.boxes').html('');
+    for (var i = 1; i < 10; i ++) {
+      var box = $('<span />').addClass('box').attr('id', i);
+      $('.boxes').append(box);
+    }
+  },
+  updateSquares: function(square, symbol) {
+    $(square).text(symbol);
+  },
 };
 
 MYAPP.game = {
@@ -120,7 +149,8 @@ MYAPP.game = {
     //set event listener for click, assign symbol
     // box container created in html, no position conflict with canvas
     //http://gridbyexample.com/examples/example1/
-    MYAPP.game.setSquares();
+    MYAPP.display.setSquares();
+
 
     /* Call Game play logic */
     MYAPP.game.play();
@@ -128,23 +158,25 @@ MYAPP.game = {
   },
   play: function() {
     /* Game Board Page */
+
     //this event listener must be attached after the squares are set
     $('.box').click(function() {
-      MYAPP.game.updateSquares(this);
+      var symbol = MYAPP.isPlayerOneTurn? MYAPP.playerOneSymbol: MYAPP.playerTwoSymbol;
+      MYAPP.display.updateSquares(this, symbol);
+      MYAPP.game.checkGame(this, symbol);
+      // Change turn
+      MYAPP.isPlayerOneTurn = ! MYAPP.isPlayerOneTurn;
     });
+
   },
-  setSquares: function() {
-    $('.boxes').html('');
-    for (var i = 0; i < 9; i ++) {
-      var box = $('<span />').addClass('box').attr('id', i);
-      $('.boxes').append(box);
-    }
+  checkGame: function(square, symbol) {
+    //get the id of the clicked square
+    var id = $(square).attr('id');
+    // mark the currentBoard with ID
+    MYAPP.currentBoard[id] = symbol;
+    console.log(MYAPP.currentBoard);
   },
-  updateSquares: function(square) {
-    var symbol = MYAPP.isPlayerOneTurn? MYAPP.playerOneSymbol: MYAPP.playerTwoSymbol;
-    MYAPP.isPlayerOneTurn = ! MYAPP.isPlayerOneTurn;
-    $(square).text(symbol);
-  }, //updateSquares
+
 };
 
 
