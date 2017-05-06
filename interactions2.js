@@ -192,12 +192,19 @@ MYAPP.game = {
     //check currentBoard
     // 1. any symbol occupied winCombos
     // check if  currentPlayer has won
-    return MYAPP.winCombos.some(function(combination){
+    var winCombo = MYAPP.winCombos.filter(function(combination){
       // check if the currentBoard has the index in combination
       return combination.every(function(winningId) {
         return (MYAPP.currentBoard[winningId] === symbol);
       });
     });
+    //change style of winning square
+    if (winCombo.length > 0) {
+      for (var i = 0; i < winCombo[0].length; i++) {
+        $('#'+ winCombo[0][i]).addClass('win');
+      }
+    }
+    return winCombo.length > 0;
   },
   checkDraw: function() {
     return Object.values(MYAPP.currentBoard).every(function(square){
