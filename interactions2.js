@@ -125,7 +125,9 @@ MYAPP.display = {
     }
   },
   updateSquares: function(square, symbol) {
-    $(square).text(symbol);
+    if ($(square).text()==='') {
+      $(square).text(symbol);
+    }
   },
 };
 
@@ -164,6 +166,16 @@ MYAPP.game = {
       var symbol = MYAPP.isPlayerOneTurn? MYAPP.playerOneSymbol: MYAPP.playerTwoSymbol;
       MYAPP.display.updateSquares(this, symbol);
       MYAPP.game.checkGame(this, symbol);
+      //check win
+      if(MYAPP.game.checkWin(symbol)) {
+        var msg = MYAPP.isPlayerOneTurn? 'Player One': 'Player Two';
+        console.log('Congrats ' + msg + ' You have won!');
+      }
+      //check draw
+      if (MYAPP.game.checkDraw()) {
+        console.log('this is a draw');
+      }
+
       // Change turn
       MYAPP.isPlayerOneTurn = ! MYAPP.isPlayerOneTurn;
     });
@@ -176,7 +188,22 @@ MYAPP.game = {
     MYAPP.currentBoard[id] = symbol;
     console.log(MYAPP.currentBoard);
   },
-
+  checkWin: function(symbol) {
+    //check currentBoard
+    // 1. any symbol occupied winCombos
+    // check if  currentPlayer has won
+    return MYAPP.winCombos.some(function(combination){
+      // check if the currentBoard has the index in combination
+      return combination.every(function(winningId) {
+        return (MYAPP.currentBoard[winningId] === symbol);
+      });
+    });
+  },
+  checkDraw: function() {
+    return Object.values(MYAPP.currentBoard).every(function(square){
+      return square !== '';
+    });
+  },
 };
 
 
