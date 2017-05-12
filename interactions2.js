@@ -169,7 +169,9 @@ MYAPP.game = {
       //check win
       if(MYAPP.game.checkWin(symbol)) {
         var msg = MYAPP.isPlayerOneTurn? 'Player One': 'Player Two';
-        console.log('Congrats ' + msg + ' You have won!');
+        msg = 'Congrats ' + msg + ' You have won! :D';
+        $('.win-message').children('p').text(msg);
+        $('.win-message').fadeIn(600);
       }
       //check draw
       if (MYAPP.game.checkDraw()) {
