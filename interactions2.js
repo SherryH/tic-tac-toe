@@ -3,6 +3,8 @@ const MYAPP = {
   playerOneSymbol: null,
   playerTwoSymbol: null,
   isPlayerOneTurn: true,
+  playerOneScore: 0,
+  playerTwoScore: 0,
   winCombos: [
     [1, 2, 3],
     [4, 5, 6],
@@ -167,12 +169,7 @@ MYAPP.game = {
       MYAPP.display.updateSquares(this, symbol);
       MYAPP.game.checkGame(this, symbol);
       //check win
-      if(MYAPP.game.checkWin(symbol)) {
-        var msg = MYAPP.isPlayerOneTurn? 'Player One': 'Player Two';
-        msg = 'Congrats ' + msg + ' You have won! :D';
-        $('.win-message').children('p').text(msg);
-        $('.win-message').fadeIn(600);
-      }
+      MYAPP.game.checkWin(symbol);
       //check draw
       if (MYAPP.game.checkDraw()) {
         console.log('this is a draw');
@@ -206,7 +203,32 @@ MYAPP.game = {
         $('#'+ winCombo[0][i]).addClass('win');
       }
     }
-    return winCombo.length > 0;
+    //return winCombo.length > 0;
+
+    // if someone wins
+    if (winCombo.length > 0) {
+      //display message to winner
+      var msg = MYAPP.isPlayerOneTurn? 'Player One': 'Player Two';
+      msg = 'Congrats ' + msg + ' You have won! :D';
+      $('.win-message').children('p').text(msg);
+      $('.win-message').fadeIn(1600);
+      //increment winner's score
+      var scoreNode;
+      var currentScore;
+      if (MYAPP.isPlayerOneTurn) {
+        scoreNode = '#player1-score';
+        MYAPP.playerOneScore++;
+        currentScore = MYAPP.playerOneScore;
+      } else {
+        scoreNode = '#player2-score';
+        MYAPP.playerTwoScore++;
+        currentScore = MYAPP.playerTwoScore;
+      }
+      $(scoreNode).text(currentScore);
+
+      //restart the game round, keep the score
+    }
+
   },
   checkDraw: function() {
     return Object.values(MYAPP.currentBoard).every(function(square){
