@@ -63,7 +63,7 @@ MYAPP.display = {
   showGameStarter: function() {
     var msg = 'Would you like to be X or O?';
     if (MYAPP.hasSecondPlayer) {
-      msg = 'Player One:' + msg;
+      msg = 'Player One: ' + msg;
     }
     $('.game-starter').children('p').text(msg);
     $('.game-starter').fadeIn(600);
@@ -173,6 +173,7 @@ MYAPP.game = {
       //check draw
       if (MYAPP.game.checkDraw()) {
         console.log('this is a draw');
+        MYAPP.game.restart();
       }
 
       // Change turn
@@ -212,7 +213,10 @@ MYAPP.game = {
       msg = 'Congrats ' + msg + ' You have won! :D';
       $('.win-message').children('p').text(msg);
       $('.win-message').fadeIn(1600);
+      $('.win-message').fadeOut(600);
       //increment winner's score
+
+      //refactor the score into a separate function
       var scoreNode;
       var currentScore;
       if (MYAPP.isPlayerOneTurn) {
@@ -227,8 +231,22 @@ MYAPP.game = {
       $(scoreNode).text(currentScore);
 
       //restart the game round, keep the score
+      //this restart function will run before win-message fades out so that the squares will disappear simulaneously
+      MYAPP.game.restart();
     }
+  },
+  restart: function(){
+    //clear the records from board
+    $.when($('.box').fadeOut(1000))
+    .done(function(){
+      $('.box').fadeIn();
+      MYAPP.display.setSquares();
+      for (var props in MYAPP.currentBoard){
+        MYAPP.currentBoard[props] = '';
+      }
+      MYAPP.game.play();
 
+    });
   },
   checkDraw: function() {
     return Object.values(MYAPP.currentBoard).every(function(square){
