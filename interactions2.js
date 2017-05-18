@@ -46,6 +46,10 @@ const MYAPP = {
     });
 
     $('.reset').click(function() {
+      MYAPP.playerOneScore = 0;
+      MYAPP.playerTwoScore = 0;
+      $('#player1-score').text('0');
+      $('#player2-score').text('0');
       $.when(MYAPP.display.hideGameBoard())
       .done(MYAPP.display.showGameChoice);
     });
