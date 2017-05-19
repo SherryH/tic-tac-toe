@@ -166,10 +166,13 @@ MYAPP.game = {
   },
   play: function() {
     /* Game Board Page */
+    //show the playerOneFlag when the game starts
+    $('.player1-turn').animate({'margin-top':'-80px'});
 
     //this event listener must be attached after the squares are set
     $('.box').click(function() {
       var symbol = MYAPP.isPlayerOneTurn? MYAPP.playerOneSymbol: MYAPP.playerTwoSymbol;
+      MYAPP.game.switchPlayerTurnPromp();
       MYAPP.display.updateSquares(this, symbol);
       MYAPP.game.checkGame(this, symbol);
       //check win
@@ -183,7 +186,16 @@ MYAPP.game = {
       // Change turn
       MYAPP.isPlayerOneTurn = ! MYAPP.isPlayerOneTurn;
     });
-
+  },
+  switchPlayerTurnPromp: function(){
+    var playerTurnFlagClass = MYAPP.isPlayerOneTurn? '.player1-turn' : '.player2-turn';
+    if (!MYAPP.isPlayerOneTurn) {
+      $('.player1-turn').animate({'margin-top': '-80px'},700);
+      $('.player2-turn').animate({'margin-top': '-20px'},700);
+    } else {
+      $('.player1-turn').animate({'margin-top': '-20px'},700);
+      $('.player2-turn').animate({'margin-top': '-80px'},700);
+    }
   },
   checkGame: function(square, symbol) {
     //get the id of the clicked square
@@ -237,6 +249,8 @@ MYAPP.game = {
       //restart the game round, keep the score
       //this restart function will run before win-message fades out so that the squares will disappear simulaneously
       MYAPP.game.restart();
+      //Todo: make sure correct player is awarded score. player2 gets score everytime
+      //Make the player flag disappear with reset
     }
   },
   restart: function(){
