@@ -179,10 +179,7 @@ MYAPP.game = {
       //check win
       MYAPP.game.checkWin(symbol);
       //check draw
-      if (MYAPP.game.checkDraw()) {
-        console.log('this is a draw');
-        MYAPP.game.restart();
-      }
+      MYAPP.game.checkDraw();
 
       // Change turn
       MYAPP.isPlayerOneTurn = ! MYAPP.isPlayerOneTurn;
@@ -254,9 +251,6 @@ MYAPP.game = {
       //restart the game round, keep the score
       //this restart function will run before win-message fades out so that the squares will disappear simulaneously
       MYAPP.game.restart();
-      //Todo: make sure correct player is awarded score. player2 gets score everytime
-      //Make the player flag disappear with reset
-      //Draw is displayed
     }
   },
   restart: function(){
@@ -274,9 +268,14 @@ MYAPP.game = {
     });
   },
   checkDraw: function() {
-    return Object.values(MYAPP.currentBoard).every(function(square){
+    var isDraw = Object.values(MYAPP.currentBoard).every(function(square){
       return square !== '';
     });
+    if (isDraw) {
+      $('.draw-message').fadeIn(1600);
+      $('.draw-message').fadeOut(600);
+      MYAPP.game.restart();
+    }
   },
 };
 
