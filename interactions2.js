@@ -167,7 +167,8 @@ MYAPP.game = {
   play: function() {
     /* Game Board Page */
     //show the playerOneFlag when the game starts
-    $('.player1-turn').animate({'margin-top':'-80px'});
+    var playerFlag = MYAPP.isPlayerOneTurn? '.player1-turn' : '.player2-turn';
+    $(playerFlag).animate({'margin-top':'-80px'});
 
     //this event listener must be attached after the squares are set
     $('.box').click(function() {
