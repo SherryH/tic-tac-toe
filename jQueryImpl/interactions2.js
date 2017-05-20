@@ -50,6 +50,7 @@ const MYAPP = {
       MYAPP.playerTwoScore = 0;
       $('#player1-score').text('0');
       $('#player2-score').text('0');
+      MYAPP.game.hidePlayerTurnPromp();
       $.when(MYAPP.display.hideGameBoard())
       .done(MYAPP.display.showGameChoice);
     });
