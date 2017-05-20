@@ -197,6 +197,10 @@ MYAPP.game = {
       $('.player2-turn').animate({'margin-top': '-80px'},700);
     }
   },
+  hidePlayerTurnPromp: function(){
+    $('.player1-turn').animate({'margin-top': '-20px'},700);
+    $('.player2-turn').animate({'margin-top': '-20px'},700);
+  },
   checkGame: function(square, symbol) {
     //get the id of the clicked square
     var id = $(square).attr('id');
@@ -251,6 +255,7 @@ MYAPP.game = {
       MYAPP.game.restart();
       //Todo: make sure correct player is awarded score. player2 gets score everytime
       //Make the player flag disappear with reset
+      //Draw is displayed
     }
   },
   restart: function(){
@@ -262,6 +267,7 @@ MYAPP.game = {
       for (var props in MYAPP.currentBoard){
         MYAPP.currentBoard[props] = '';
       }
+      MYAPP.game.hidePlayerTurnPromp();
       MYAPP.game.play();
 
     });
