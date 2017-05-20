@@ -56,7 +56,47 @@ box-shadow: 1px 9px 15px 2px rgba(0,0,0,0.52);
   opacity: 0.7;
 }
 
+.game-starter-enter {
+  opacity: 0.01;
+}
+
+.game-starter-enter.game-starter-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.game-starter-leave {
+  opacity: 1;
+}
+
+.game-starter-leave.game-starter-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+.game-choice-enter {
+  opacity: 0.01;
+}
+
+.game-choice-enter.game-choice-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.game-choice-leave {
+  opacity: 1;
+}
+
+.game-choice-leave.game-choice-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
 .role-control {
   display: flex;
   justify-content: space-around;
+}
+
+button {
+  cursor: pointer;
 }
