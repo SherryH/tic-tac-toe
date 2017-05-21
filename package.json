@@ -4,7 +4,7 @@
   "description": "This tic tac toe game has been adapted from [an assessment](https://codepen.io/freeCodeCamp/pen/KzXQgy) in FreeCodeCamp",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --history-api-fallback",
     "webpack": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
