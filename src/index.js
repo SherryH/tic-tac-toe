@@ -1,16 +1,16 @@
 import React from 'react';
 import {render} from 'react-dom';
-import {IndexRoute, Router, Route, hashHistory} from 'react-router';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import App from './App';
+import GameChoice from './components/GameChoice';
+import GameStart from './components/GameStart';
 
 
 render(
-  <Router history={hashHistory}>
+  <Router>
     <Route path="/" component = {App}>
-      <IndexRoute component={GameChoice}>
-      <Route path="gamestart" component={GameStart}/>
+      <Route exact component={GameChoice} />
     </Route>
-  </Router>
-  <App />,
+  </Router>,
   document.getElementById('app')
 );
