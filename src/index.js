@@ -8,9 +8,10 @@ import GameStart from './components/GameStart';
 
 render(
   <Router>
-    <Route path="/" component = {App}>
-      <Route exact component={GameChoice} />
-    </Route>
+    <div>
+      <Route exact path="/" component = {GameChoice} />
+      <Route path="/gamestart" component={GameStart} />
+    </div>
   </Router>,
   document.getElementById('app')
 );
