@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const GameChoice = () =>{
 
@@ -9,7 +10,7 @@ const GameChoice = () =>{
           <p>How do you want to play?</p>
           <div className="role-control">
             <button>One Player</button>
-            <button>Two Players</button>
+            <button><Link to="/gamestart">Two Players</Link></button>
           </div>
         </div>
       </div>
