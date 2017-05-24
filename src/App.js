@@ -1,4 +1,7 @@
 import React from 'react';
+import {Route, Switch} from 'react-router-dom';
+import GameChoice from './components/GameChoice';
+import GameStart from './components/GameStart';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 //outer gamebox container
@@ -16,9 +19,27 @@ export default class App extends React.Component {
 
   render(){
     return (
-      <div>
-        {this.props.children}
-      </div>
+
+          <Route render={({location, match})=>{
+            return(
+              <CSSTransitionGroup
+                    transitionName="fade"
+                    transitionEnter={true}
+                    transitionLeave={true}
+                    transitionEnterTimeout={700}
+                    transitionLeaveTimeout={50}
+              >
+                <Switch key={location.key} location={location}>
+                  {console.log('location',location)}
+                  <Route exact path="/" component = {GameChoice} />
+                  <Route path="/gamestart" component={GameStart} />
+                </Switch>
+              </CSSTransitionGroup>
+            );
+
+          }}/>
+
+
     );
   }
 

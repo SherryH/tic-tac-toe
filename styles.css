@@ -67,22 +67,27 @@ a:hover {
   margin: auto;
 }
 
-.game-starter-enter {
+.fade-enter {
   opacity: 0.01;
+  visibility: visible; /*without visibility, the elements jump on fadein/fadeout */
+
 }
 
-.game-starter-enter.game-starter-enter-active {
+.fade-enter.fade-enter-active {
   opacity: 1;
-  transition: opacity 500ms ease-in;
+  transition: all 700ms ease-in;
+
 }
 
-.game-starter-leave {
+.fade-leave {
+  visibility: hidden;
   opacity: 1;
 }
 
-.game-starter-leave.game-starter-leave-active {
+.fade-leave.fade-leave-active {
   opacity: 0.01;
-  transition: opacity 300ms ease-in;
+  transition: all 50ms ease-out;
+
 }
 
 .game-choice-enter {
