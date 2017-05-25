@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 const GameChoice = () =>{
 
   return (
+    <div className="center-container">
     <div className="outer-container">
       <div className="board-container">
         <div className="game-choice">
@@ -14,6 +15,7 @@ const GameChoice = () =>{
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

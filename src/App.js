@@ -27,12 +27,12 @@ export default class App extends React.Component {
                     transitionEnter={true}
                     transitionLeave={true}
                     transitionEnterTimeout={700}
-                    transitionLeaveTimeout={50}
+                    transitionLeaveTimeout={400}
               >
                 <Switch key={location.key} location={location}>
                   {console.log('location',location)}
-                  <Route exact path="/" component = {GameChoice} />
-                  <Route path="/gamestart" component={GameStart} />
+                  <Route key={location.key} exact path="/" component = {GameChoice} />
+                  <Route key={location.key} path="/gamestart" component={GameStart} />
                 </Switch>
               </CSSTransitionGroup>
             );

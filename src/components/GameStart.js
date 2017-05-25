@@ -3,6 +3,7 @@ import React from 'react';
 const GameStart = () =>{
 
   return (
+    <div className="center-container">
     <div className="outer-container">
       <div className="board-container">
         <div className="game-starter">
@@ -14,6 +15,7 @@ const GameStart = () =>{
           <button className="back-button"><i className="fa fa-arrow-left"></i> Back</button>
         </div>
       </div>
+    </div>
     </div>
   );
 };
