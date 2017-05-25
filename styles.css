@@ -74,8 +74,6 @@ a:hover {
 
 .fade-enter {
   opacity: 0;
-  /*visibility: visible; without visibility, the elements jump on fadein/fadeout */
-
 }
 
 .fade-enter.fade-enter-active {
@@ -85,7 +83,6 @@ a:hover {
 }
 
 .fade-leave {
-  /*visibility: hidden;*/
   opacity: 0;
 }
 

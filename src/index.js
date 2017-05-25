@@ -11,7 +11,11 @@ const ExampleApp = () =>(
 
 render(
   <Router>
-    <App/>
+    <div className="center-container">
+      <div className="outer-container">
+          <App/>
+      </div>
+    </div>
   </Router>,
   document.getElementById('app')
 );
