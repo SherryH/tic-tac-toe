@@ -92,27 +92,28 @@ a:hover {
 
 }
 
-.game-choice-enter {
-  opacity: 0.01;
-}
-
-.game-choice-enter.game-choice-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-
-.game-choice-leave {
-  opacity: 1;
-}
-
-.game-choice-leave.game-choice-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
-}
-
 .role-control {
   display: flex;
   justify-content: space-around;
+}
+
+.game-board {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  display: none;
+}
+
+#myCanvas {
+  width: 330px;
+  height: 330px;
+  position: absolute;
+  z-index: 0;
+  left: 10px;
+  top: 10px;
+  opacity: 1;
+  display: none;
 }
 
 button, a{

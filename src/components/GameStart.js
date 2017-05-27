@@ -8,8 +8,8 @@ const GameStart = () =>{
           <div className="game-starter">
             <p>Would you like to be X or O?</p>
             <div className="role-control">
-              <button>X</button>
-              <button>O</button>
+              <button><Link to="/gameboard">X</Link></button>
+              <button><Link to="/gameboard">O</Link></button>
             </div>
             <button className="back-button"><Link to="/"> Back</Link></button>
           </div>

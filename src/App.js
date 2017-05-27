@@ -2,6 +2,7 @@ import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 import GameChoice from './components/GameChoice';
 import GameStart from './components/GameStart';
+import GameBoard from './components/GameBoard';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 //outer gamebox container
@@ -33,6 +34,7 @@ export default class App extends React.Component {
                   {console.log('location',location)}
                   <Route key={location.key} exact path="/" component = {GameChoice} />
                   <Route key={location.key} path="/gamestart" component={GameStart} />
+                  <Route key={location.key} path="/gameboard" component={GameBoard} />
                 </Switch>
               </CSSTransitionGroup>
             );
