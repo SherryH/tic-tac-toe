@@ -45,12 +45,12 @@ export default class GameBoard extends React.Component {
 
   render(){
     return (
-          <div className="board-container">
-            <div className="game-board">
-              <canvas id="myCanvas"></canvas>
-              <div className="boxes"></div>
-            </div>
-          </div>
+      <div className="board-container">
+        <div className="game-board">
+          <canvas id="myCanvas"></canvas>
+          <div className="boxes"></div>
+        </div>
+      </div>
 
     );
   }
