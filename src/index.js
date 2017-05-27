@@ -2,8 +2,10 @@ import React from 'react';
 import {render} from 'react-dom';
 import {BrowserRouter as Router, Switch} from 'react-router-dom';
 import {createStore, applyMiddleware} from 'redux';
-import { createLogger } from 'redux-logger';
-import App from './App';
+import { logger } from 'redux-logger';
+import {Provider} from 'react-redux';
+import AppContainer from './AppContainer';
+import reducer from './reducer/reducer';
 
 
 
@@ -12,15 +14,17 @@ const ExampleApp = () =>(
 );
 
 //store contains all states, subscribes to the actions by taking in reducer
-const store = createStore(reducer, applyMiddleware(createLogger());
+const store = createStore(reducer,applyMiddleware(logger));
 
 render(
-  <Router>
-    <div className="center-container">
-      <div className="outer-container">
-          <App/>
+  <Provider store={store}>
+    <Router>
+      <div className="center-container">
+        <div className="outer-container">
+            <AppContainer/>
+        </div>
       </div>
-    </div>
-  </Router>,
+    </Router>
+  </Provider>,
   document.getElementById('app')
 );
