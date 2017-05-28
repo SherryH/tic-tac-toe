@@ -15,6 +15,7 @@ const ExampleApp = () =>(
 
 //store contains all states, subscribes to the actions by taking in reducer
 const store = createStore(reducer,applyMiddleware(logger));
+console.log('index',store);
 
 render(
   <Provider store={store}>

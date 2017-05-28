@@ -1,10 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const GameChoice = () =>{
+const GameChoice = (props) =>{
 
   return (
         <div className="board-container">
+        {console.log('choice',props, props.ownStates)}
           <div className="game-choice">
             <p>How do you want to play?</p>
             <div className="role-control">

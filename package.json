@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/SherryH/tic-tac-toe#readme",
   "dependencies": {
+    "babel-preset-stage-2": "^6.24.1",
     "jquery": "^3.2.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",

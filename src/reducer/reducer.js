@@ -9,6 +9,7 @@ const reducer = (state=initialStates, action) => {
       return Object.assign({},state,{is2PlayerGame: SET_2_PLAYER_GAME});
 
     default:
+      console.log('reducer', state);
       return state;
   }
 };
