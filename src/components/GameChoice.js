@@ -1,11 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {setPlayerNum} from '../actionCreator/action';
+// import {setPlayerNum} from '../actionCreator/action';
 
 const GameChoice = (props) => {
 
   const is2Player = (event, num) => {
-    setPlayerNum(num === 2);
+    props.setPlayerNum(num === 2);
   };
 
   return (
@@ -22,5 +22,27 @@ const GameChoice = (props) => {
 
   );
 };
+
+
+/* set for setPlayerNum (action) and we don't need to pass in is2PlayerGame
+
+App.defaultProps = {
+  currentPosts: [],
+  showMorePosts: function showMorePosts() {},
+};
+
+App.propTypes = {
+  showMorePosts: React.PropTypes.func,
+  currentPosts: React.PropTypes.arrayOf(
+    React.PropTypes.shape({
+      body: React.PropTypes.string,
+      id: React.PropTypes.number,
+      title: React.PropTypes.string,
+      userId: React.PropTypes.number,
+    }),
+  ),
+};
+
+*/
 
 export default GameChoice;
