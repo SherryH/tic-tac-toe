@@ -15,7 +15,8 @@ import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 const renderMergedProps = (component, routeProps,...stateProps) =>{
   console.log('stateProps', stateProps);
-  const allProps = Object.assign({}, routeProps);
+  console.log('...stateProps', ...stateProps);
+  const allProps = Object.assign({}, routeProps, ...stateProps);
   return React.createElement(component, allProps);
 };
 
@@ -41,7 +42,7 @@ const App = (props) =>{
                 transitionLeaveTimeout={400}
           >
             <Switch key={location.key} location={location}>
-              <PropsRoute key={location.key} exact path="/" component = {GameChoice} is2PlayerGame={props.is2PlayerGame}/>
+              <PropsRoute key={location.key} exact path="/" component = {GameChoice} is2PlayerGame={props.is2PlayerGame} setPlayerNum={props.setPlayerNum}/>
               <Route key={location.key} path="/gamestart" component={GameStart} />
               <Route key={location.key} path="/gameboard" component={GameBoard} />
             </Switch>
