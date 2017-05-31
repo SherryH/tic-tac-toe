@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
+//use react-router-redux to enable links and redirection
+
 const GameStart = () =>{
 
   return (

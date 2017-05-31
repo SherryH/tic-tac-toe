@@ -43,7 +43,7 @@ const App = (props) =>{
           >
             <Switch key={location.key} location={location}>
               <PropsRoute key={location.key} exact path="/" component = {GameChoice} setPlayerNum={props.setPlayerNum}/>
-              <Route key={location.key} path="/gamestart" component={GameStart} />
+              <PropsRoute key={location.key} path="/gamestart" component={GameStart} />
               <Route key={location.key} path="/gameboard" component={GameBoard} />
             </Switch>
           </CSSTransitionGroup>
