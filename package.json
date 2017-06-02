@@ -20,13 +20,14 @@
   "homepage": "https://github.com/SherryH/tic-tac-toe#readme",
   "dependencies": {
     "babel-preset-stage-2": "^6.24.1",
+    "history": "^4.6.1",
     "jquery": "^3.2.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.5",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
-    "react-router-redux": "^4.0.8",
+    "react-router-redux": "^5.0.0-alpha.6",
     "react-transition-group": "^1.1.3",
     "redux": "^3.6.0",
     "redux-logger": "^3.0.6"
